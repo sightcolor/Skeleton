@@ -1,0 +1,38 @@
+model:
+  st_gcn:
+    in_channels: 3
+    hidden_channels: [64, 128, 256]
+    num_classes: 10
+    
+  fusion:
+    rgb_dim: 1024
+    depth_dim: 512
+    skeleton_dim: 256
+    hidden_dim: 256
+    
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  num_epochs: 100
+  device: 'cpu'
+  
+data:
+  base_path: 'data'
+  train:
+    rgb_path: 'train/RGB_VIDEO'
+    depth_path: 'train/DEPTH_VIDEO'
+    ir_path: 'train/IR_VIDEO'
+    skeleton_path: 'train/SKELETON'
+    label_file: 'train/labels.txt'
+  val:
+    rgb_path: 'val/RGB_VIDEO'
+    depth_path: 'val/DEPTH_VIDEO'
+    ir_path: 'val/IR_VIDEO'
+    skeleton_path: 'val/SKELETON'
+    label_file: 'val/labels.txt'
+  test:
+    rgb_path: 'test/RGB_VIDEO'
+    depth_path: 'test/DEPTH_VIDEO'
+    ir_path: 'test/IR_VIDEO'
+    skeleton_path: 'test/SKELETON'
+    label_file: 'test/labels.txt'
